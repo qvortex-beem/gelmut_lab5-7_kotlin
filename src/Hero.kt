@@ -65,6 +65,25 @@ class Hero {
 
     fun castSpellOn(enemy: Enemy, spellName: String, damage: Int) {
         println("$name атакует врага ${enemy.name} заклинанеим $spellName!")
-        enemy.takeDamage(damage)
+        if (element == enemy.element) {
+            enemy.takeDamage(damage/2)
+        } else {
+            enemy.takeDamage(damage)
+        }
+    }
+
+    fun duel(opponent: Hero) {
+        println("Дуэль между $name и ${opponent.name} начинается")
+
+        println("$name атакует первым")
+        opponent.takeDamage(15)
+
+        println("${opponent.name} отвечает")
+        this.takeDamage(15)
+
+        println("Дуэль завершена")
+        println("Состояние героев:")
+        this.showStats()
+        opponent.showStats()
     }
 }
