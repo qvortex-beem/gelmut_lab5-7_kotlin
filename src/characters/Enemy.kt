@@ -1,8 +1,10 @@
-class Enemy(
-    val name: String = "безымянный",
-    var hp: Int = 1,
-    val element: String = "обнинск"
-) {
+package characters
+
+open class Enemy(
+    name: String,
+    hp: Int = 0,
+    element: String = "неизвестный"
+) : GameCharacter(name, hp, element) {
 
     fun takeDamage(amount: Int) {
         println("Получено $amount урона")
@@ -16,6 +18,7 @@ class Enemy(
     }
 
     fun getThreatLevel(): String {
+        if (hp < 0) { return "некорректное значение"}
         return when {
             hp <= 50 -> "низкий"
             hp >= 150 -> "средний"

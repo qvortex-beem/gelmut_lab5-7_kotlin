@@ -1,9 +1,12 @@
+package world
+
 class Contract(
+    title: String,
     val clientName: String,
     val taslDescription: String,
-    val reward: Int,
+    reward: Int,
     val isUrgent: Boolean = false
-) {
+) : Mission(title, reward) {
     fun printContractInfo() {
         println("Заказчик: $clientName")
         println("Задача: $taslDescription")

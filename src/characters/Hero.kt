@@ -1,12 +1,17 @@
+package characters
+
+import world.Quest
+
 class Hero(
-    val name: String = "безымянный",
+    name: String = "безымянный",
     val gender: String = "мужской",
     var role: String = "отсутствует",
-    var hp: Int = 1,
+    hp: Int = 1,
     var mp: Int = 1,
     var level: Int = 1,
-    val element: String = "обнинск"
-) {
+    element: String = "обнинск",
+    val experience: Int = 0
+) : GameCharacter(name, hp, element) {
 
     fun sayHello() {
         println("Я $name, мой путь только начинается!")

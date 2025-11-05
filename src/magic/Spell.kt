@@ -1,9 +1,11 @@
+package magic
+
 class Spell(
-    val name: String = "",
+    name: String = "",
     val width: Int = 0,
     val height: Int = 0,
-    val symbol: String = ""
-    ) {
+    symbol: String = ""
+    ) : MagicEffect(name, symbol, 10) {
     // конструктор для квадратных заклинаний
     constructor(name: String, size: Int, symbol: String) : this(name, size, size, symbol)
     fun cast() {

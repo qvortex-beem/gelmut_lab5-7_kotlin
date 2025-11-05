@@ -1,5 +1,9 @@
+package world
+
+import world.Quest
+
 fun main() {
-//    val quest = Quest()
+//    val quest = world.Quest()
 //    print("Введите название квеста: ")
 //    val title = readln()
 //    print("Введите время выполнения (в часах): ")
@@ -17,10 +21,10 @@ fun main() {
 //    )
 //    quest.printInfo()
 
-//    val quests = mutableListOf<Quest>()
+//    val quests = mutableListOf<world.Quest>()
 //    for (i in 1..3) {
 //        println("Добавим квест #$i")
-//        val q = Quest()
+//        val q = world.Quest()
 //        print("Название: ")
 //        val title = readln()
 //        print("Время (ч): ")
@@ -39,7 +43,24 @@ fun main() {
 //        q.printInfo()
 //    }
 
-    val quest = Quest("Побег из замка", 5, 700, "сложный")
-    println("Квест сложный? ${quest.isHard()}")
+//    val quest = world.Quest("Побег из замка", 5, 700, "сложный")
+//    println("Квест сложный? ${quest.isHard()}")
+
+//    val quest1 = Quest("охота", 2, 300, "средний")
+//    println(quest1.goldPerHour())
+
+    val quest = Quest("Поиск артефакта", 3, 800, "средний")
+    val contract = Contract("защита каравана", "гильдия купцов", "охрана груза", 1200)
+    val specialOp = SpecialOperation("операция 'тень'", 2500, 2, true)
+
+    println("Информация о квесте:")
+    println("Название: ${quest.title}, Награда: ${quest.reward}")
+
+    println("\nИнформация о контракте:")
+    println("Название: ${contract.title}, Заказчик: ${contract.clientName}")
+
+    println("\nИнформация о спецоперации:")
+    println("Название: ${specialOp.title}")
+    specialOp.showReward()
 
 }
