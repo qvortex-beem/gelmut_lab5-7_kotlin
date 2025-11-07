@@ -49,18 +49,29 @@ fun main() {
 //    val quest1 = Quest("охота", 2, 300, "средний")
 //    println(quest1.goldPerHour())
 
-    val quest = Quest("Поиск артефакта", 3, 800, "средний")
-    val contract = Contract("защита каравана", "гильдия купцов", "охрана груза", 1200)
-    val specialOp = SpecialOperation("операция 'тень'", 2500, 2, true)
+//    val quest = Quest("Поиск артефакта", 3, 800, "средний")
+//    val contract = Contract("защита каравана", "гильдия купцов", "охрана груза", 1200)
+//    val specialOp = SpecialOperation("операция 'тень'", 2500, 2, true)
+//
+//    println("Информация о квесте:")
+//    println("Название: ${quest.title}, Награда: ${quest.reward}")
+//
+//    println("\nИнформация о контракте:")
+//    println("Название: ${contract.title}, Заказчик: ${contract.clientName}")
+//
+//    println("\nИнформация о спецоперации:")
+//    println("Название: ${specialOp.title}")
+//    specialOp.showReward()
 
-    println("Информация о квесте:")
-    println("Название: ${quest.title}, Награда: ${quest.reward}")
+    val missions = listOf<Mission>(
+        Quest("охота на монстров", 3,600, "средний"),
+        SpecialOperation("ночной рейд", 1500, 2, true),
+        Contract("сопровождение каравана", "гильдия торговцев", "доставить груз через лес", 800, true)
+    )
 
-    println("\nИнформация о контракте:")
-    println("Название: ${contract.title}, Заказчик: ${contract.clientName}")
-
-    println("\nИнформация о спецоперации:")
-    println("Название: ${specialOp.title}")
-    specialOp.showReward()
-
+    for (mission in missions) {
+        mission.describe()
+        println("Высокая награда? ${if (mission.isHighReward()) "да" else "нет"}")
+        println()
+    }
 }
